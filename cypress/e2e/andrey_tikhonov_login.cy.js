@@ -32,7 +32,7 @@ describe('Проверка авторизации', function () {
          cy.get('#messageHeader').contains('Такого логина или пароля нет'); // проверяем, что после неуспешной авторицации появляется текст
          cy.get('#exitMessageButton > .exitIcon').should('be.visible'); // проверяем наличие крестика
     })
-   it('Логин без @и верный пароль', function () {
+   it('Логин без @ и верный пароль', function () {
          cy.visit('login.qa.studio'); // Зашли на сайт
          cy.get('#mail').type('germandolnienko.ru'); // Ввели  логин без @
          cy.get('#pass').type('iLoveqastudio1'); // Ввели верный пароль
@@ -40,13 +40,12 @@ describe('Проверка авторизации', function () {
          cy.get('#messageHeader').contains('Нужно исправить проблему валидации'); // проверяем, что после неуспешной валидации логина появляется текст
          cy.get('#exitMessageButton > .exitIcon').should('be.visible'); // проверяем наличие крестика
     })
-   it('Верный логин и верный пароль', function () {
+   it('Верный логин с заглавными буквами и верный пароль', function () {
          cy.visit('login.qa.studio'); // Зашли на сайт
          cy.get('#mail').type('GerMan@Dolnikov.ru'); // Ввели верный логин с заглавными буквами
          cy.get('#pass').type('iLoveqastudio1'); // Ввели верный пароль
          cy.get('#loginButton').click(); // Нажали войти
          cy.get('#messageHeader').contains('Авторизация прошла успешно'); // проверяем, что после успешной авторицации появляется текст
          cy.get('#exitMessageButton > .exitIcon').should('be.visible'); // проверяем наличие крестика
+      })
 })
-
-
